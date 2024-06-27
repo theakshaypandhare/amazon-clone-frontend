@@ -14,7 +14,7 @@ object-fit:cover;
 `
 export const Home = () => {
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative',backgroundColor:"#E3E6E6" }}>
             <Bannerimg src={homebanner1} alt="logo" />
             <Grid container spacing={3} style={{ position: 'absolute', top: '20rem' ,padding:'1rem'}}  >
                 <Grid item xs={6} md={4} sm={2}>

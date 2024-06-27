@@ -4,21 +4,23 @@ import {
   Card,
   Divider,
   Grid,
-  List,
-  ListItem,
   Menu,
   MenuItem,
   Rating,
   Typography,
-  image,
 } from "@mui/material";
 import React from "react";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import badge from "../assests/amazonchoiceBadge.png";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import products from "../services/products";
+const item=products['mbl001'];
 export const Product = () => {
   return (
     <div>
+
+    {/*  */}
+   
+    {/*  */}
       <Grid container spacing={2} columnSpacing={2} sx={{ px: 3, pt: 5 }}>
         <Grid
           item
@@ -28,22 +30,20 @@ export const Product = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
           }}
         >
-          <Box width={400}>
+          <Box   width={400}>
             <img
               src="https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg"
-              style={{ height: "100%", width: "100%" }}
+              style={{ height: "auto", width: "100%" }}
             />
           </Box>
         </Grid>
         <Grid item md={5} sm={6} xs={12}>
           <Box>
             <Typography variant="h5">
-              iQOO Z7 Pro 5G (Blue Lagoon, 8GB RAM, 256GB Storage) | 3D Curved
-              AMOLED Display | 4nm MediaTek Dimesity 7200 5G Processor | 64MP
-              Aura Light OIS Camera | Segment's Slimmest & Lightest Smartphone
+              {item.brand+" "+item.modelName}  5G ({item.color } , {item.ram} RAM, {item.storage} Storage) | 
+              {item.displayType} Display | {item.processor} 5G Processor | {item.cameraPixel} Camera | {item.specialty}
             </Typography>
             <Typography variant="subtitle1">Visit the iQOO Store</Typography>
             <Typography variant="subtitle1">
@@ -55,21 +55,22 @@ export const Product = () => {
             <Typography variant="caption">5K+ bought in past month</Typography>
             <Divider />
             <Typography variant="h5" mt={1}>
-              <span style={{ color: "#CC0C39" }}>-14% </span>₹23,998
+              <span style={{ color: "#CC0C39" }}>-14% </span>₹{item.price}
             </Typography>
             <Typography variant="body2">
               M.R.P.:
               <Box component="span" sx={{ textDecoration: "line-through" }}>
-                ₹27,999
+                ₹{Math.floor((14/100)*item.price+item.price)}
               </Box>
             </Typography>
             <Typography variant="body1">
               Inclusive of all taxes You Save:
               <Box component="span" sx={{ fontWeight: "bold" }}>
                 <br />
-                EMI
+                EMI 
               </Box>
-              starts at ₹1,163. No Cost EMI available
+              <char>&nbsp;</char>
+ starts at ₹1,163. No Cost EMI available
             </Typography>
             <Divider sx={{ marginTop: "1rem" }} />
             <Grid container>
@@ -77,31 +78,31 @@ export const Product = () => {
                 Brand
               </Grid>
               <Grid item xs={6} md={6} sm={6}>
-                iQOO
+                {item.brand}
               </Grid>
               <Grid item xs={6} md={6} sm={6} sx={{ fontWeight: "bold" }}>
-                Operating System
+                Processor
               </Grid>
               <Grid item xs={6} md={6} sm={6}>
-                Funtouch OS 13 Based On Android 13
+                {item.processor}
               </Grid>
               <Grid item xs={6} md={6} sm={6} sx={{ fontWeight: "bold" }}>
                 RAM
               </Grid>
               <Grid item xs={6} md={6} sm={6}>
-                Memory Installed Size 8 GB
+                Memory Installed Size {item.ram}
               </Grid>
               <Grid item xs={6} md={6} sm={6} sx={{ fontWeight: "bold" }}>
                 CPU Model
               </Grid>
               <Grid item xs={6} md={6} sm={6}>
-                Snapdragon
+                {item.cpuModel}
               </Grid>
               <Grid item xs={6} md={6} sm={6} sx={{ fontWeight: "bold" }}>
                 CPU Speed
               </Grid>
               <Grid item xs={6} md={6} sm={6}>
-                2.8 GHz
+                {item.cpuSpeed} 
               </Grid>
             </Grid>
             <Divider sx={{ marginTop: "1rem" }} />
@@ -116,43 +117,30 @@ export const Product = () => {
             </Typography>
             <Typography paragraph>
               <ul>
-                <li>
-                  Dimensity 7200 5g processor based on the latest 4nm
-                  energy-efficient process
-                </li>
-                <li>
-                  3D Curved Super-vision Display with 17.22 cm (6.78 inches)
-                  screen size, 93.3% Screen-to-body ratio, 120 Hz AMOLED FHD+,
-                  1.07 Billion Colors, 1300 nits Peak Local Brightness
-                </li>
-                <li>
-                  64 MP AURA Light OIS Camera, 4K video recording, Hybrid Image
-                  Stabilization, Super Night Mode, Aura Light Portrait, Camera
-                  Panning Portrait
-                </li>
-                <li>
-                  66W FlashCharge with 4600mAh large battery | 8GB RAM + 8GB
-                  Extended RAM
-                </li>
+              {item.aboutItem.map((item,index)=>(  <li key={index}> {item}
+                </li>))}
+              
               </ul>
             </Typography>
           </Box>
         </Grid>
-        <Grid item md={2} sm={6} xs={12}>
+        <Grid item md={2} sm={12} xs={12}>
           <Box pl={1}>
             <Card variant="outlined" sx={{ p: 1 }}>
               <Typography variant="h5" mt={1} sx={{ fontWeight: "bold" }}>
-                ₹23,998
+              ₹{ item.price}
               </Typography>
               <Typography variant="body2" pt={2}>
                 FREE delivery
                 <Box component="span" sx={{ fontWeight: "bold" }}>
-                  Tuesday, 2 July.
+               {<char>&nbsp;</char>
+               }Tuesday, 2 July.
                   <br />
                 </Box>
                 Order within
                 <Box component="span" sx={{ color: "#007600" }}>
-                  2 hrs 17 mins.
+                &nbsp;
+                2 hrs 17 mins.
                 </Box>
                 <br /> Details
               </Typography>
