@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { HeaderBg, HeaderConentDiv, SearchContainer, SearchBtnContainer, SearchInput, SearchBtn } from './styles/GlobalStyles';
+import { HeaderBg, HeaderConentDiv, SearchContainer, SearchBtnContainer, SearchInput, SearchBtn } from '../styles/GlobalStyles';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
