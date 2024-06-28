@@ -1,22 +1,16 @@
 import {
-  Container,
   Grid,
-  Paper,
   Box,
   Card,
   CardMedia,
   CardActions,
-  CardContent,
   Typography,
   Button,
   Rating,
 } from "@mui/material";
 import React from "react";
 import products from "../services/products";
-import { green } from "@mui/material/colors";
-import { Product } from "./Product";
 import { Link } from "react-router-dom";
-
 const Products = () => {
   return (
     <div>
@@ -60,6 +54,7 @@ const Products = () => {
                   <Link 
                 to="/product" 
                 state={{ id: prodId }}
+                style={{textDecoration:"none",color:'inherit'}}
             >
 
                     <Box sx={{ px: 2 }}>
